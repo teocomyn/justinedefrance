@@ -451,7 +451,7 @@ function App() {
             >
               <div>
                 <p className="eyebrow text-rust">Roman phare</p>
-                <h2 className="mt-4 max-w-4xl font-display text-[clamp(3.2rem,7vw,7.4rem)] font-black leading-[0.88]">
+                <h2 className="mt-4 max-w-3xl font-display text-[clamp(2.65rem,5.25vw,5.8rem)] font-black leading-[0.94]">
                   Avant le symbole,
                   <span className="block text-rust">une femme.</span>
                 </h2>
@@ -468,30 +468,32 @@ function App() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, amount: 0.25 }}
                 transition={{ duration: 0.8, ease: 'easeOut' }}
-                className="relative overflow-hidden rounded-[1.75rem] bg-ink p-5 text-linen shadow-[0_35px_110px_rgba(23,16,11,0.22)]"
+                className="relative overflow-hidden rounded-[1.75rem] bg-ink p-4 text-linen shadow-[0_35px_110px_rgba(23,16,11,0.22)] sm:p-5"
               >
                 <div className="absolute inset-0">
                   <img src="/assets/adieu-cover.png" alt="" className="h-full w-full object-cover opacity-20" />
                   <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/84 to-ink/36" />
                 </div>
-                <div className="relative grid gap-8 md:grid-cols-[14rem_1fr] md:items-center">
-                  <div className="mx-auto w-full max-w-[14rem]">
+                <div className="relative grid gap-6 sm:gap-8 md:grid-cols-[minmax(9rem,14rem)_minmax(0,1fr)] md:items-center">
+                  <div className="mx-auto w-full max-w-[11.5rem] sm:max-w-[13rem] md:max-w-[14rem]">
                     <img
                       src="/assets/adieu-liberte.png"
                       alt="Couverture du roman Adieu, liberté"
                       className="w-full rotate-[-4deg] rounded-xl border border-white/20 shadow-2xl shadow-black/50"
                     />
                   </div>
-                  <div>
-                    <p className="text-xs font-bold uppercase tracking-[0.26em] text-gold">Istya & Cie - 05 février 2026</p>
-                    <h3 className="mt-4 font-display text-5xl font-black leading-none sm:text-6xl">Adieu, liberté</h3>
+                  <div className="min-w-0">
+                    <p className="text-[0.68rem] font-bold uppercase tracking-[0.18em] text-gold sm:text-xs sm:tracking-[0.26em]">
+                      Istya & Cie - 05 février 2026
+                    </p>
+                    <h3 className="mt-4 font-display text-[clamp(2.25rem,8vw,3.75rem)] font-black leading-[0.95]">Adieu, liberté</h3>
                     <p className="mt-6 text-lg leading-8 text-linen/72">
                       Une histoire de révoltes, d’amour, de jalousie et de quête de liberté autour de la naissance d’un
                       tableau mythique.
                     </p>
-                    <div className="mt-7 grid grid-cols-2 gap-3 text-sm sm:grid-cols-4">
+                    <div className="mt-7 flex flex-wrap gap-2.5 text-sm">
                       {['Paris', '1830', 'Atelier', 'Insurrection'].map((item) => (
-                        <span key={item} className="rounded-full border border-gold/25 bg-gold/10 px-3 py-2 text-center font-semibold text-gold">
+                        <span key={item} className="max-w-full rounded-full border border-gold/25 bg-gold/10 px-3 py-2 text-center font-semibold text-gold">
                           {item}
                         </span>
                       ))}
@@ -500,9 +502,9 @@ function App() {
                       href="https://www.placedeslibraires.fr/livre/9782889443154-adieu-liberte-justine-defrance/"
                       target="_blank"
                       rel="noreferrer"
-                      className="mt-8 inline-flex items-center gap-3 rounded-full bg-gold px-6 py-4 font-semibold text-ink transition hover:-translate-y-1 hover:bg-linen"
+                      className="mt-8 inline-flex w-full max-w-[22rem] items-center justify-center gap-3 rounded-full bg-gold px-5 py-3.5 text-sm font-semibold text-ink transition hover:-translate-y-1 hover:bg-linen sm:w-auto sm:max-w-none sm:px-6 sm:py-4 sm:text-base"
                     >
-                      Commander le roman
+                      <span>Commander le roman</span>
                       <ArrowRight size={18} />
                     </a>
                   </div>
@@ -518,10 +520,10 @@ function App() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true, amount: 0.25 }}
                       transition={{ duration: 0.55, delay: index * 0.08, ease: 'easeOut' }}
-                      className="border-l border-rust/30 bg-white/70 p-5 shadow-xl shadow-ink/5 backdrop-blur"
+                      className="min-w-0 border-l border-rust/30 bg-white/70 p-5 shadow-xl shadow-ink/5 backdrop-blur"
                     >
                       <p className="text-xs font-black uppercase tracking-[0.24em] text-rust">{character.role}</p>
-                      <h3 className="mt-3 font-display text-3xl font-black">{character.name}</h3>
+                      <h3 className="mt-3 font-display text-[clamp(1.7rem,4vw,2rem)] font-black leading-tight">{character.name}</h3>
                       <p className="mt-4 text-sm leading-6 text-ink/62">{character.copy}</p>
                     </motion.article>
                   ))}
@@ -537,7 +539,7 @@ function App() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, amount: 0.25 }}
                         transition={{ duration: 0.55, delay: index * 0.08, ease: 'easeOut' }}
-                        className="group overflow-hidden rounded-2xl border border-ink/10 bg-white p-4 shadow-xl shadow-ink/5"
+                        className="group min-w-0 overflow-hidden rounded-2xl border border-ink/10 bg-white p-4 shadow-xl shadow-ink/5"
                       >
                         <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-ink">
                           <img src={feature.image} alt="" className="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
@@ -562,10 +564,10 @@ function App() {
             <div className="absolute inset-0 bg-[linear-gradient(115deg,rgba(23,53,44,0.98)_0%,rgba(23,53,44,0.9)_48%,rgba(23,53,44,0.72)_100%)]" />
             <div className="paper-grain absolute inset-0 opacity-20" />
           </div>
-          <div className="relative mx-auto grid max-w-7xl gap-12 px-5 py-20 sm:px-6 lg:grid-cols-[0.88fr_1.12fr] lg:px-8 lg:py-28">
+          <div className="relative mx-auto grid max-w-7xl gap-10 px-5 py-20 sm:px-6 lg:grid-cols-[0.82fr_1.18fr] lg:px-8 lg:py-28">
             <div className="lg:sticky lg:top-28 lg:self-start">
               <p className="eyebrow text-gold">Bio</p>
-              <h2 className="mt-4 font-display text-[clamp(3rem,6.1vw,6.25rem)] font-black leading-[0.9]">
+              <h2 className="mt-4 max-w-2xl font-display text-[clamp(2.15rem,3.35vw,3.8rem)] font-black leading-[1]">
                 Plusieurs vies d’histoire.
                 <span className="block text-gold">Une même voix.</span>
               </h2>
@@ -589,29 +591,25 @@ function App() {
               </div>
             </div>
 
-            <div className="grid gap-5 lg:grid-cols-[0.78fr_1fr]">
-              <figure className="relative min-h-[32rem] overflow-hidden rounded-[1.75rem] border border-white/12 bg-linen/8 p-3 shadow-[0_35px_110px_rgba(0,0,0,0.28)]">
+            <div className="grid gap-5 lg:grid-cols-[minmax(22rem,0.88fr)_1fr] lg:items-start">
+              <figure className="relative mx-auto aspect-square w-full max-w-[26rem] overflow-hidden rounded-[1.75rem] border border-white/12 bg-linen/8 p-3 shadow-[0_35px_110px_rgba(0,0,0,0.28)]">
                 <img
                   src="/assets/justine-portrait.jpg"
                   alt="Portrait de Justine Defrance"
-                  className="h-full w-full rounded-[1.15rem] object-cover object-[center_35%]"
+                  className="h-full w-full rounded-[1.15rem] object-cover object-[center_28%]"
                 />
-                <div className="absolute inset-x-3 bottom-3 h-1/2 rounded-b-[1.15rem] bg-gradient-to-t from-ink/82 to-transparent" />
+                <div className="absolute inset-x-3 bottom-3 h-1/3 rounded-b-[1.15rem] bg-gradient-to-t from-ink/68 to-transparent" />
                 <figcaption className="absolute bottom-6 left-6 right-6 text-sm leading-6 text-linen/78">
-                  <span className="mb-3 inline-flex rounded-full border border-gold/35 bg-gold/15 px-3 py-1 text-xs font-bold uppercase tracking-[0.18em] text-gold backdrop-blur-xl">
+                  <span className="inline-flex rounded-full border border-gold/35 bg-ink/55 px-3 py-1 text-xs font-bold uppercase tracking-[0.18em] text-gold shadow-xl shadow-black/20 backdrop-blur-xl">
                     Crédit photo : Marie-Hélène Tercafs
-                  </span>
-                  <span className="block">
-                    Autrice, vulgarisatrice en histoire, comédienne, féministe, nordiste, amatrice de cinéma, de puzzles
-                    et de bons repas.
                   </span>
                 </figcaption>
               </figure>
 
-              <div className="flex flex-col justify-center gap-5">
-                <div className="border-y border-white/12 py-7">
+              <div className="flex flex-col gap-5">
+                <div className="border-y border-white/12 py-6">
                   <p className="text-sm font-bold uppercase tracking-[0.22em] text-gold">Trajectoire</p>
-                  <p className="mt-4 text-2xl leading-10 text-linen/86">
+                  <p className="mt-4 text-lg leading-8 text-linen/84">
                     D’abord historienne de formation, elle a enseigné, vulgarisé, écrit des livres d’histoire, puis
                     ouvert plus largement la porte de la fiction.
                   </p>
@@ -653,7 +651,7 @@ function App() {
             <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
               <div>
                 <p className="eyebrow text-gold">Bibliothèque</p>
-                <h2 className="mt-4 max-w-4xl font-display text-[clamp(3rem,6.3vw,6.6rem)] font-black leading-[0.92]">
+                <h2 className="mt-4 max-w-3xl font-display text-[clamp(2.55rem,4.95vw,5.35rem)] font-black leading-[0.96]">
                   Des livres comme
                   <span className="block text-gold">des portes dérobées.</span>
                 </h2>
@@ -666,8 +664,8 @@ function App() {
             </div>
 
             <div className="mt-14 grid gap-5 lg:grid-cols-[1.05fr_0.95fr]">
-              <article className="relative overflow-hidden rounded-[1.75rem] border border-white/12 bg-linen/[0.06] p-5 shadow-[0_35px_110px_rgba(0,0,0,0.32)]">
-                <div className="grid gap-8 md:grid-cols-[16rem_1fr] md:items-center">
+              <article className="relative overflow-hidden rounded-[1.75rem] border border-white/12 bg-linen/[0.06] p-4 shadow-[0_35px_110px_rgba(0,0,0,0.32)] sm:p-5">
+                <div className="grid gap-7 md:grid-cols-[minmax(10rem,16rem)_minmax(0,1fr)] md:items-center">
                   <div className="relative mx-auto w-full max-w-[15rem]">
                     <div className="absolute -inset-5 rounded-full bg-gold/18 blur-3xl" />
                     <img
@@ -676,17 +674,19 @@ function App() {
                       className="relative w-full rotate-[-3deg] rounded-xl border border-white/20 shadow-2xl shadow-black/45"
                     />
                   </div>
-                  <div>
-                    <p className="text-xs font-bold uppercase tracking-[0.26em] text-gold">Roman historique</p>
-                    <h3 className="mt-4 font-display text-5xl font-black leading-none sm:text-6xl">Adieu, liberté</h3>
-                    <p className="mt-3 text-sm uppercase tracking-[0.2em] text-linen/48">05 février 2026 - Istya & Cie</p>
+                  <div className="min-w-0">
+                    <p className="text-xs font-bold uppercase tracking-[0.22em] text-gold sm:tracking-[0.26em]">Roman historique</p>
+                    <h3 className="mt-4 font-display text-[clamp(2.25rem,8vw,3.75rem)] font-black leading-[0.95]">Adieu, liberté</h3>
+                    <p className="mt-3 text-xs uppercase tracking-[0.16em] text-linen/48 sm:text-sm sm:tracking-[0.2em]">
+                      05 février 2026 - Istya & Cie
+                    </p>
                     <p className="mt-6 text-lg leading-8 text-linen/72">
                       Paris, 1830. Delacroix cherche l’inspiration, Jenny accompagne ses doutes, Charlotte donne chair à
                       une allégorie. Un premier roman sur la fabrique d’un tableau, d’un mythe et d’une liberté.
                     </p>
-                    <div className="mt-7 flex flex-wrap gap-3">
+                    <div className="mt-7 flex flex-wrap gap-2.5">
                       {['Delacroix', 'Jenny', 'Charlotte', '1830'].map((tag) => (
-                        <span key={tag} className="rounded-full border border-gold/30 bg-gold/10 px-4 py-2 text-sm font-semibold text-gold">
+                        <span key={tag} className="max-w-full rounded-full border border-gold/30 bg-gold/10 px-3 py-2 text-sm font-semibold text-gold sm:px-4">
                           {tag}
                         </span>
                       ))}
@@ -695,7 +695,7 @@ function App() {
                       href="https://www.placedeslibraires.fr/livre/9782889443154-adieu-liberte-justine-defrance/"
                       target="_blank"
                       rel="noreferrer"
-                      className="mt-8 inline-flex items-center gap-3 rounded-full bg-gold px-6 py-4 font-semibold text-ink transition hover:-translate-y-1 hover:bg-linen"
+                      className="mt-8 inline-flex w-full max-w-[22rem] items-center justify-center gap-3 rounded-full bg-gold px-5 py-3.5 text-sm font-semibold text-ink transition hover:-translate-y-1 hover:bg-linen sm:w-auto sm:max-w-none sm:px-6 sm:py-4 sm:text-base"
                     >
                       <BookOpen size={18} />
                       Trouver le roman
@@ -721,14 +721,14 @@ function App() {
                 {publications.slice(1).map((publication) => (
                   <article
                     key={publication.title}
-                    className="group grid gap-4 border-b border-white/10 bg-linen/[0.03] p-5 transition hover:bg-linen/[0.07] sm:grid-cols-[8.5rem_1fr]"
+                    className="group grid min-w-0 gap-4 border-b border-white/10 bg-linen/[0.03] p-5 transition hover:bg-linen/[0.07] sm:grid-cols-[8.5rem_minmax(0,1fr)]"
                   >
                     <div>
                       <p className="text-xs font-bold uppercase tracking-[0.24em] text-gold">{publication.category}</p>
                       <p className="mt-3 text-sm text-linen/45">{publication.meta}</p>
                     </div>
                     <div>
-                      <h3 className="font-display text-3xl font-black leading-tight">{publication.title}</h3>
+                      <h3 className="font-display text-[clamp(1.75rem,4vw,2rem)] font-black leading-tight">{publication.title}</h3>
                       <p className="mt-3 leading-7 text-linen/64">{publication.note}</p>
                     </div>
                   </article>
@@ -754,7 +754,7 @@ function App() {
                 transition={{ duration: 0.7, ease: 'easeOut' }}
               >
                 <p className="eyebrow text-rust">La Prof</p>
-                <h2 className="mt-4 font-display text-[clamp(3.1rem,6.5vw,7rem)] font-black leading-[0.88]">
+                <h2 className="mt-4 max-w-3xl font-display text-[clamp(2.55rem,5.05vw,5.45rem)] font-black leading-[0.94]">
                   Des vidéos qui
                   <span className="block text-rust">déplacent le regard.</span>
                 </h2>
@@ -774,7 +774,7 @@ function App() {
                   href="https://www.youtube.com/laprof"
                   target="_blank"
                   rel="noreferrer"
-                  className="mt-7 inline-flex items-center gap-3 rounded-full bg-rust px-6 py-4 font-semibold text-linen transition hover:-translate-y-1 hover:bg-ink"
+                  className="mt-7 inline-flex w-full max-w-[20rem] items-center justify-center gap-3 rounded-full bg-rust px-5 py-3.5 text-sm font-semibold text-linen transition hover:-translate-y-1 hover:bg-ink sm:w-auto sm:max-w-none sm:px-6 sm:py-4 sm:text-base"
                 >
                   <Youtube size={19} />
                   Ouvrir YouTube
@@ -788,22 +788,22 @@ function App() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, amount: 0.25 }}
                 transition={{ duration: 0.75, ease: 'easeOut' }}
-                className="video-tile min-h-[34rem] overflow-hidden rounded-[1.75rem]"
+                className="video-tile min-h-[28rem] overflow-hidden rounded-[1.75rem] sm:min-h-[32rem] lg:min-h-[34rem]"
               >
                 <img src="/assets/rosa-bonheur.png" alt="Miniature de vidéo sur Rosa Bonheur" className="h-full w-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/28 to-transparent" />
-                <div className="absolute left-0 right-0 top-0 flex items-center justify-between p-5">
-                  <span className="rounded-full bg-gold px-4 py-2 text-xs font-black uppercase tracking-[0.2em] text-ink">
+                <div className="absolute left-0 right-0 top-0 flex flex-wrap items-center justify-between gap-2 p-4 sm:p-5">
+                  <span className="rounded-full bg-gold px-3 py-2 text-[0.68rem] font-black uppercase tracking-[0.16em] text-ink sm:px-4 sm:text-xs sm:tracking-[0.2em]">
                     Épisode phare
                   </span>
-                  <span className="rounded-full border border-white/20 bg-ink/35 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-linen backdrop-blur-xl">
+                  <span className="rounded-full border border-white/20 bg-ink/35 px-3 py-2 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-linen backdrop-blur-xl sm:px-4 sm:text-xs sm:tracking-[0.18em]">
                     Gentes Dames Badass
                   </span>
                 </div>
-                <div className="absolute bottom-0 left-0 max-w-2xl p-6 text-linen sm:p-8">
-                  <Play className="mb-6 rounded-full bg-gold p-4 text-ink shadow-2xl shadow-black/25" size={64} />
-                  <h3 className="font-display text-5xl font-black leading-none sm:text-6xl">Rosa Bonheur</h3>
-                  <p className="mt-5 max-w-xl text-lg leading-8 text-linen/70">
+                <div className="absolute bottom-0 left-0 max-w-2xl p-5 text-linen sm:p-8">
+                  <Play className="mb-5 rounded-full bg-gold p-3 text-ink shadow-2xl shadow-black/25 sm:p-4" size={58} />
+                  <h3 className="font-display text-[clamp(2.35rem,8vw,3.8rem)] font-black leading-[0.95]">Rosa Bonheur</h3>
+                  <p className="mt-5 max-w-xl text-base leading-7 text-linen/70 sm:text-lg sm:leading-8">
                     Une peintre libre, célèbre, indépendante, et une parfaite passerelle vers les figures féminines du
                     XIXe siècle.
                   </p>
@@ -818,7 +818,7 @@ function App() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, amount: 0.25 }}
                     transition={{ duration: 0.55, delay: index * 0.08, ease: 'easeOut' }}
-                    className="group grid gap-4 overflow-hidden rounded-2xl border border-ink/10 bg-white/76 p-3 shadow-xl shadow-ink/5 backdrop-blur sm:grid-cols-[10rem_1fr]"
+                    className="group grid min-w-0 gap-4 overflow-hidden rounded-2xl border border-ink/10 bg-white/76 p-3 shadow-xl shadow-ink/5 backdrop-blur sm:grid-cols-[10rem_minmax(0,1fr)]"
                   >
                     <div className="relative min-h-40 overflow-hidden rounded-xl bg-ink">
                       <img src={video.image} alt="" className="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
@@ -827,7 +827,7 @@ function App() {
                     </div>
                     <div className="flex flex-col justify-center p-2">
                       <p className="text-xs font-black uppercase tracking-[0.22em] text-rust">{video.label}</p>
-                      <h3 className="mt-3 font-display text-3xl font-black leading-tight">{video.title}</h3>
+                      <h3 className="mt-3 font-display text-[clamp(1.75rem,4vw,2rem)] font-black leading-tight">{video.title}</h3>
                       <p className="mt-3 text-sm leading-6 text-ink/62">{video.copy}</p>
                     </div>
                   </motion.article>
@@ -845,7 +845,7 @@ function App() {
                   transition={{ duration: 0.5, delay: index * 0.06, ease: 'easeOut' }}
                   className="border border-ink/10 bg-white/65 p-5 text-center shadow-xl shadow-ink/5"
                 >
-                  <p className="font-display text-2xl font-black">{theme}</p>
+                  <p className="font-display text-[clamp(1.35rem,4vw,1.55rem)] font-black leading-tight">{theme}</p>
                 </motion.div>
               ))}
             </div>
@@ -891,13 +891,15 @@ function App() {
           <div className="mx-auto grid max-w-7xl gap-12 px-5 py-24 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8 lg:py-32">
             <div>
               <p className="eyebrow text-rust">Contact & newsletter</p>
-              <h2 className="section-title mt-4">Recevoir les nouvelles publications, proposer une rencontre, parler d'écriture.</h2>
+              <h2 className="mt-4 font-display text-[clamp(2rem,3.1vw,3.35rem)] font-black leading-[1.08]">
+                Recevoir les nouvelles publications, proposer une rencontre, parler d'écriture.
+              </h2>
               <div className="mt-8 space-y-4 text-lg leading-8 text-ink/68">
                 <p>
-                  Pour l'écriture : <a className="font-semibold text-rust" href="mailto:justine.defrance@protonmail.com">justine.defrance@protonmail.com</a>
+                  Pour l'écriture : <a className="break-all font-semibold text-rust" href="mailto:justine.defrance@protonmail.com">justine.defrance@protonmail.com</a>
                 </p>
                 <p>
-                  Pour la vulgarisation historique : <a className="font-semibold text-rust" href="mailto:chroniques.deprof@gmail.com">chroniques.deprof@gmail.com</a>
+                  Pour la vulgarisation historique : <a className="break-all font-semibold text-rust" href="mailto:chroniques.deprof@gmail.com">chroniques.deprof@gmail.com</a>
                 </p>
               </div>
               <div className="mt-8 flex flex-wrap gap-3">
@@ -909,7 +911,7 @@ function App() {
                       href={social.href}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-2 rounded-full border border-ink/10 px-4 py-3 font-semibold transition hover:-translate-y-1 hover:bg-ink hover:text-linen"
+                      className="inline-flex max-w-full items-center gap-2 rounded-full border border-ink/10 px-4 py-3 font-semibold transition hover:-translate-y-1 hover:bg-ink hover:text-linen"
                     >
                       <Icon size={18} />
                       {social.label}
@@ -964,13 +966,13 @@ function App() {
         >
           <div className="grid grid-cols-1 gap-10 md:mb-10 md:grid-cols-12 md:gap-12">
             <div className="md:col-span-5">
-              <a href="#accueil" className="group inline-flex items-center gap-4 text-linen" aria-label="Retour à l'accueil">
+              <a href="#accueil" className="group inline-flex max-w-full items-center gap-4 text-linen" aria-label="Retour à l'accueil">
                 <span className="grid size-12 place-items-center rounded-2xl bg-gold text-ink shadow-lg shadow-gold/15 transition group-hover:-translate-y-1">
                   <Feather size={22} />
                 </span>
-                <span>
-                  <span className="block font-display text-2xl font-black leading-none">Justine Defrance</span>
-                  <span className="mt-2 block text-xs font-bold uppercase tracking-[0.28em] text-gold">
+                <span className="min-w-0">
+                  <span className="block font-display text-[clamp(1.45rem,6vw,1.5rem)] font-black leading-none">Justine Defrance</span>
+                  <span className="mt-2 block text-[0.68rem] font-bold uppercase tracking-[0.2em] text-gold sm:text-xs sm:tracking-[0.28em]">
                     Autrice - Histoire - Fiction
                   </span>
                 </span>
@@ -982,17 +984,17 @@ function App() {
               </p>
 
               <div className="mt-8 grid gap-3 sm:grid-cols-3 md:max-w-md">
-                <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-4">
+                <div className="min-w-0 rounded-2xl border border-white/10 bg-white/[0.04] p-4">
                   <BookMarked className="text-gold" size={20} />
                   <p className="mt-3 text-xs uppercase tracking-[0.2em] text-linen/45">Roman</p>
                   <p className="mt-1 font-display text-xl font-black text-linen">Adieu, liberté</p>
                 </div>
-                <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-4">
+                <div className="min-w-0 rounded-2xl border border-white/10 bg-white/[0.04] p-4">
                   <ScrollText className="text-gold" size={20} />
                   <p className="mt-3 text-xs uppercase tracking-[0.2em] text-linen/45">Projet</p>
                   <p className="mt-1 font-display text-xl font-black text-linen">Automne 2026</p>
                 </div>
-                <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-4">
+                <div className="min-w-0 rounded-2xl border border-white/10 bg-white/[0.04] p-4">
                   <Music2 className="text-gold" size={20} />
                   <p className="mt-3 text-xs uppercase tracking-[0.2em] text-linen/45">Chaîne</p>
                   <p className="mt-1 font-display text-xl font-black text-linen">La Prof</p>
@@ -1032,7 +1034,7 @@ function App() {
                   </div>
                   <a
                     href="mailto:justine.defrance@protonmail.com"
-                    className="inline-flex items-center justify-center gap-3 rounded-full bg-gold px-6 py-4 font-semibold text-ink transition hover:-translate-y-1 hover:bg-linen"
+                    className="inline-flex w-full max-w-[20rem] items-center justify-center gap-3 rounded-full bg-gold px-5 py-3.5 text-sm font-semibold text-ink transition hover:-translate-y-1 hover:bg-linen sm:w-auto sm:max-w-none sm:px-6 sm:py-4 sm:text-base"
                   >
                     Écrire
                     <ArrowRight size={18} />
@@ -1043,12 +1045,12 @@ function App() {
           </div>
 
           <div className="mt-10 flex flex-col gap-6 border-t border-white/10 pt-6 md:flex-row md:items-center md:justify-between md:gap-4">
-            <p className="text-[10px] uppercase tracking-[0.28em] text-linen/42">
+            <p className="text-[10px] uppercase tracking-[0.18em] text-linen/42 sm:tracking-[0.28em]">
               © 2026 Justine Defrance - Crédit photo : Marie-Hélène Tercafs
             </p>
 
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-              <span className="text-[10px] uppercase tracking-[0.28em] text-linen/42">Suivre le fil :</span>
+              <span className="text-[10px] uppercase tracking-[0.18em] text-linen/42 sm:tracking-[0.28em]">Suivre le fil :</span>
               <div className="flex flex-wrap gap-2">
                 {footerSocials.map((social) => {
                   const Icon = social.icon

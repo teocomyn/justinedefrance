@@ -28,6 +28,20 @@ body {
 
 img {
   display: block;
+  max-width: 100%;
+}
+
+main,
+section,
+article,
+footer,
+form {
+  min-width: 0;
+}
+
+a,
+button {
+  min-width: 0;
 }
 
 .paper-grain {
@@ -85,10 +99,10 @@ img {
 
 .section-title {
   font-family: var(--font-display);
-  font-size: clamp(2.45rem, 5.5vw, 5.7rem);
+  font-size: clamp(2.05rem, 3.75vw, 4rem);
   font-weight: 900;
   letter-spacing: 0;
-  line-height: 0.96;
+  line-height: 1.04;
 }
 
 .eyebrow {
@@ -106,6 +120,18 @@ img {
   width: 2.5rem;
   height: 1px;
   background: currentColor;
+}
+
+@media (max-width: 640px) {
+  .eyebrow {
+    gap: 0.42rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+  }
+
+  .eyebrow::before {
+    width: 1.75rem;
+  }
 }
 
 .reveal-card {
