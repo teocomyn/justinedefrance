@@ -388,8 +388,7 @@ function App() {
       <main>
         <section id="accueil" className="relative min-h-screen overflow-hidden pt-28">
           <div className="absolute inset-0">
-            <img src="/assets/justine-portrait.jpg" alt="" className="h-full w-full object-cover opacity-45" />
-            <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(23,16,11,0.95)_0%,rgba(23,16,11,0.82)_42%,rgba(23,16,11,0.34)_100%)]" />
+            <div className="hero-backdrop absolute inset-0" />
             <div className="paper-grain absolute inset-0 opacity-35" />
           </div>
 

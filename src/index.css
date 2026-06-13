@@ -113,6 +113,24 @@ button {
   mix-blend-mode: screen;
 }
 
+.hero-backdrop {
+  background:
+    radial-gradient(circle at 74% 28%, rgba(228, 187, 103, 0.16), transparent 31%),
+    radial-gradient(circle at 18% 78%, rgba(157, 67, 43, 0.2), transparent 28%),
+    radial-gradient(circle at 92% 78%, rgba(23, 53, 44, 0.55), transparent 34%),
+    linear-gradient(90deg, rgba(23, 16, 11, 0.99) 0%, rgba(23, 16, 11, 0.94) 48%, rgba(23, 16, 11, 0.86) 100%);
+}
+
+.hero-backdrop::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(115deg, transparent 0 36%, rgba(228, 187, 103, 0.08) 36.2%, transparent 36.7%),
+    linear-gradient(155deg, transparent 0 62%, rgba(245, 234, 216, 0.06) 62.2%, transparent 62.7%);
+  opacity: 0.8;
+}
+
 .hero-object {
   animation: floatFrame 7s ease-in-out infinite;
 }
