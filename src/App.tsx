@@ -455,16 +455,16 @@ function App() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.35 }}
               transition={{ duration: 0.75, ease: 'easeOut' }}
-              className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end"
+              className="mx-auto flex max-w-5xl flex-col items-center gap-6 text-center"
             >
-              <div>
+              <div className="flex flex-col items-center">
                 <p className="eyebrow text-rust">Roman phare</p>
-                <h2 className="mt-4 max-w-3xl font-display text-[clamp(2.65rem,5.25vw,5.8rem)] font-black leading-[0.94]">
+                <h2 className="mx-auto mt-4 max-w-4xl font-display text-[clamp(2.65rem,5.25vw,5.8rem)] font-black leading-[0.94]">
                   Avant le symbole,
                   <span className="block text-rust">une femme.</span>
                 </h2>
               </div>
-              <div className="max-w-2xl border-l border-rust/25 pl-6 text-lg leading-8 text-ink/68">
+              <div className="max-w-3xl border-t border-rust/25 pt-6 text-lg leading-8 text-ink/68">
                 Paris, 1830. Eugène Delacroix cherche l’inspiration pour peindre La Liberté guidant le peuple. À ses
                 côtés, Jenny veille, Charlotte surgit, et la fiction s’empare de ce que l’Histoire ne peut pas prouver.
               </div>
@@ -642,15 +642,15 @@ function App() {
           </div>
 
           <div className="relative mx-auto max-w-7xl px-5 py-20 sm:px-6 lg:px-8 lg:py-28">
-            <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
-              <div>
+            <div className="mx-auto flex max-w-5xl flex-col items-center gap-6 text-center">
+              <div className="flex flex-col items-center">
                 <p className="eyebrow text-gold">Bibliothèque</p>
-                <h2 className="mt-4 max-w-3xl font-display text-[clamp(2.55rem,4.95vw,5.35rem)] font-black leading-[0.96]">
+                <h2 className="mx-auto mt-4 max-w-4xl font-display text-[clamp(2.55rem,4.95vw,5.35rem)] font-black leading-[0.96]">
                   Des livres comme
                   <span className="block text-gold">des portes dérobées.</span>
                 </h2>
               </div>
-              <div className="max-w-2xl border-l border-gold/40 pl-6 text-lg leading-8 text-linen/70">
+              <div className="max-w-3xl border-t border-gold/40 pt-6 text-lg leading-8 text-linen/70">
                 De la vulgarisation historique au roman, les publications de Justine font circuler les mêmes obsessions :
                 rendre le passé vivant, déplacer le regard, et laisser entrer celles et ceux qu’on avait oubliés hors
                 champ.
@@ -740,15 +740,16 @@ function App() {
           </div>
 
           <div className="relative mx-auto max-w-7xl px-5 py-20 sm:px-6 lg:px-8 lg:py-28">
-            <div className="grid gap-10 lg:grid-cols-[0.86fr_1.14fr] lg:items-end">
+            <div className="mx-auto flex max-w-5xl flex-col items-center gap-6 text-center">
               <motion.div
                 initial={{ opacity: 0, y: 32 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.35 }}
                 transition={{ duration: 0.7, ease: 'easeOut' }}
+                className="flex flex-col items-center"
               >
                 <p className="eyebrow text-rust">La Prof</p>
-                <h2 className="mt-4 max-w-3xl font-display text-[clamp(2.55rem,5.05vw,5.45rem)] font-black leading-[0.94]">
+                <h2 className="mx-auto mt-4 max-w-4xl font-display text-[clamp(2.55rem,5.05vw,5.45rem)] font-black leading-[0.94]">
                   Des vidéos qui
                   <span className="block text-rust">déplacent le regard.</span>
                 </h2>
@@ -758,7 +759,7 @@ function App() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.35 }}
                 transition={{ duration: 0.7, delay: 0.1, ease: 'easeOut' }}
-                className="max-w-2xl border-l border-rust/25 pl-6"
+                className="flex max-w-3xl flex-col items-center border-t border-rust/25 pt-6"
               >
                 <p className="text-lg leading-8 text-ink/68">
                   Moyen Âge, femmes artistes, sciences oubliées, objets à dater : la vulgarisation devient un format
@@ -848,10 +849,10 @@ function App() {
 
         <section id="journal" className="bg-copper text-linen">
           <div className="mx-auto max-w-7xl px-5 py-24 sm:px-6 lg:px-8 lg:py-32">
-            <div className="mb-14 flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
-              <div>
+            <div className="mx-auto mb-14 flex max-w-5xl flex-col items-center gap-8 text-center">
+              <div className="flex flex-col items-center">
                 <p className="eyebrow text-gold">Journal</p>
-                <h2 className="section-title mt-4 max-w-4xl">Les dernières nouvelles depuis l'atelier, les archives et les librairies.</h2>
+                <h2 className="section-title mx-auto mt-4 max-w-4xl">Les dernières nouvelles depuis l'atelier, les archives et les librairies.</h2>
               </div>
               <a href="https://justinedefrance.fr/blog/" className="inline-flex items-center gap-3 text-linen/80 hover:text-gold">
                 Tout lire
