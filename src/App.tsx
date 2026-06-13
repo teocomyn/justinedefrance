@@ -591,23 +591,9 @@ function App() {
               </div>
             </div>
 
-            <div className="grid gap-5 lg:grid-cols-[minmax(22rem,0.88fr)_1fr] lg:items-start">
-              <figure className="relative mx-auto aspect-square w-full max-w-[26rem] overflow-hidden rounded-[1.75rem] border border-white/12 bg-linen/8 p-3 shadow-[0_35px_110px_rgba(0,0,0,0.28)]">
-                <img
-                  src="/assets/justine-portrait.jpg"
-                  alt="Portrait de Justine Defrance"
-                  className="h-full w-full rounded-[1.15rem] object-cover object-[center_28%]"
-                />
-                <div className="absolute inset-x-3 bottom-3 h-1/3 rounded-b-[1.15rem] bg-gradient-to-t from-ink/68 to-transparent" />
-                <figcaption className="absolute bottom-6 left-6 right-6 text-sm leading-6 text-linen/78">
-                  <span className="inline-flex rounded-full border border-gold/35 bg-ink/55 px-3 py-1 text-xs font-bold uppercase tracking-[0.18em] text-gold shadow-xl shadow-black/20 backdrop-blur-xl">
-                    Crédit photo : Marie-Hélène Tercafs
-                  </span>
-                </figcaption>
-              </figure>
-
-              <div className="flex flex-col gap-5">
-                <div className="border-y border-white/12 py-6">
+            <div className="grid gap-5">
+              <div className="grid gap-5 xl:grid-cols-[0.95fr_1.05fr]">
+                <div className="border-y border-white/12 bg-linen/[0.035] px-5 py-6 backdrop-blur-sm">
                   <p className="text-sm font-bold uppercase tracking-[0.22em] text-gold">Trajectoire</p>
                   <p className="mt-4 text-lg leading-8 text-linen/84">
                     D’abord historienne de formation, elle a enseigné, vulgarisé, écrit des livres d’histoire, puis
@@ -615,19 +601,7 @@ function App() {
                   </p>
                 </div>
 
-                <div className="grid gap-3">
-                  {bioMilestones.map((item) => (
-                    <article key={item.year} className="grid grid-cols-[4.5rem_1fr] gap-4 border-b border-white/10 pb-4 last:border-b-0">
-                      <p className="font-display text-3xl font-black text-gold">{item.year}</p>
-                      <div>
-                        <h3 className="font-display text-2xl font-black">{item.title}</h3>
-                        <p className="mt-2 leading-7 text-linen/64">{item.text}</p>
-                      </div>
-                    </article>
-                  ))}
-                </div>
-
-                <div className="bg-gold p-5 text-ink shadow-2xl shadow-black/20">
+                <div className="bg-gold p-5 text-ink shadow-2xl shadow-black/20 sm:p-6">
                   <p className="font-display text-2xl font-black leading-tight">
                     “Être dispersée me convient aussi très bien.”
                   </p>
@@ -635,6 +609,18 @@ function App() {
                     Une bio qui assume la pluralité comme moteur, pas comme détour.
                   </p>
                 </div>
+              </div>
+
+              <div className="grid gap-3 sm:grid-cols-2">
+                {bioMilestones.map((item) => (
+                  <article key={item.year} className="grid min-w-0 grid-cols-[4rem_minmax(0,1fr)] gap-4 border-b border-white/10 bg-linen/[0.03] p-4 last:border-b-0">
+                    <p className="font-display text-[clamp(1.8rem,4vw,2rem)] font-black text-gold">{item.year}</p>
+                    <div className="min-w-0">
+                      <h3 className="font-display text-[clamp(1.45rem,3vw,1.65rem)] font-black leading-tight">{item.title}</h3>
+                      <p className="mt-2 leading-7 text-linen/64">{item.text}</p>
+                    </div>
+                  </article>
+                ))}
               </div>
             </div>
           </div>
