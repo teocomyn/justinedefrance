@@ -267,14 +267,8 @@ const footerSocials = [
 function BrandMark({ className = '' }: { className?: string }) {
   return (
     <span className={`brand-mark-shell ${className}`} aria-hidden="true">
-      <svg viewBox="0 0 64 64" className="brand-mark" focusable="false">
-        <path className="brand-mark-book" d="M15 45c7-5.2 14-5.1 17 .4 3-5.5 10-5.6 17-.4V20c-6.8-2.8-13-2-17 3.1C28 18 21.8 17.2 15 20v25Z" />
-        <path className="brand-mark-page" d="M32 23v22" />
-        <path className="brand-mark-j" d="M40.5 15.5v23.8c0 6.7-4.2 10.4-10.4 10.4-4.7 0-8.2-2.1-10.1-5.4" />
-        <path className="brand-mark-d" d="M25 18.6h8.2c8 0 13.4 5 13.4 13.2S41.2 45 33.2 45H25V18.6Z" />
-        <path className="brand-mark-feather" d="M20.3 43.6 44.7 19.2c3.2 4.8 2.7 10.7-1.4 14.8-3.8 3.8-9.4 4.5-14.5 1.8" />
-        <path className="brand-mark-quill" d="M20.3 43.6 31.6 35" />
-      </svg>
+      <span className="brand-mark-initials">JD</span>
+      <span className="brand-mark-rule" />
     </span>
   )
 }
