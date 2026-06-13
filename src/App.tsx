@@ -220,8 +220,10 @@ const bioMilestones = [
 
 const socials = [
   { label: 'YouTube', href: 'https://www.youtube.com/laprof', icon: Youtube },
-  { label: 'Instagram', href: 'https://www.instagram.com/', icon: Instagram },
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/', icon: Linkedin },
+  { label: 'Instagram', href: 'https://www.instagram.com/justine_defrance', icon: Instagram },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/justinedefrance/', icon: Linkedin },
+  { label: 'Facebook', href: 'https://www.facebook.com/ChroniquesdeProf', icon: Facebook },
+  { label: 'Bluesky', href: 'https://bsky.app/profile/justinedefrance.bsky.social', icon: Twitter },
 ]
 
 const footerColumns = [
@@ -240,7 +242,7 @@ const footerColumns = [
       { label: 'Adieu, liberté', href: '#roman' },
       { label: 'La Prof', href: 'https://www.youtube.com/laprof' },
       { label: 'Histoire des femmes', href: '#videos' },
-      { label: 'Rencontres', href: '#journal' },
+      { label: 'Rencontres', href: 'https://justinedefrance.fr/blog/' },
     ],
   },
   {
@@ -248,18 +250,18 @@ const footerColumns = [
     links: [
       { label: 'Écriture', href: 'mailto:justine.defrance@protonmail.com' },
       { label: 'Vulgarisation', href: 'mailto:chroniques.deprof@gmail.com' },
-      { label: 'Newsletter', href: '#contact' },
-      { label: 'Tous les liens', href: '#contact' },
+      { label: 'Newsletter', href: 'https://justinedefrance.fr/newsletter/' },
+      { label: 'Site officiel', href: 'https://justinedefrance.fr/' },
     ],
   },
 ]
 
 const footerSocials = [
   { label: 'YouTube', href: 'https://www.youtube.com/laprof', icon: Youtube },
-  { label: 'Instagram', href: 'https://www.instagram.com/', icon: Instagram },
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/', icon: Linkedin },
-  { label: 'Facebook', href: 'https://www.facebook.com/', icon: Facebook },
-  { label: 'Bluesky', href: 'https://bsky.app/', icon: Twitter },
+  { label: 'Instagram', href: 'https://www.instagram.com/justine_defrance', icon: Instagram },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/justinedefrance/', icon: Linkedin },
+  { label: 'Facebook', href: 'https://www.facebook.com/ChroniquesdeProf', icon: Facebook },
+  { label: 'Bluesky', href: 'https://bsky.app/profile/justinedefrance.bsky.social', icon: Twitter },
 ]
 
 function BrandMark({ className = '' }: { className?: string }) {
