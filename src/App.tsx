@@ -1,22 +1,28 @@
 import { FormEvent, useEffect, useMemo, useState } from 'react'
 import {
   ArrowRight,
+  AtSign,
+  BookMarked,
   BookOpen,
   CalendarDays,
   Clapperboard,
+  Facebook,
   Feather,
   History,
   Instagram,
   Linkedin,
   Mail,
   Menu,
-  Newspaper,
+  Music2,
   Play,
+  ScrollText,
   Send,
   Sparkles,
+  Twitter,
   X,
   Youtube,
 } from 'lucide-react'
+import { motion } from 'motion/react'
 
 type NavItem = {
   id: string
@@ -79,6 +85,24 @@ const features: Feature[] = [
   },
 ]
 
+const novelCharacters = [
+  {
+    name: 'Eugène',
+    role: 'Le peintre',
+    copy: 'Un artiste au bord du symbole, pris entre ambition, doute et vertige politique.',
+  },
+  {
+    name: 'Jenny',
+    role: 'La présence',
+    copy: 'La domestique fidèle, discrète dans l’Histoire officielle, essentielle dans l’atelier.',
+  },
+  {
+    name: 'Charlotte',
+    role: 'Le visage',
+    copy: 'Une lavandière farouche qui donne corps à l’allégorie et refuse d’être seulement regardée.',
+  },
+]
+
 const publications: Publication[] = [
   {
     category: 'Roman',
@@ -137,10 +161,105 @@ const posts: Post[] = [
   },
 ]
 
+const videoSpotlights = [
+  {
+    title: 'Rosa Bonheur',
+    label: 'Gentes Dames Badass',
+    copy: 'Une peintre du XIXe siècle libre, célèbre, indépendante, et bien plus politique qu’un simple portrait animalier.',
+    image: '/assets/rosa-bonheur.png',
+  },
+  {
+    title: 'Quel âge a ma mappemonde ?',
+    label: 'Enquête d’objet',
+    copy: 'Une carte, des pays disparus, et une façon très concrète de faire parler la géopolitique.',
+    image: '/assets/mappemonde.jpg',
+  },
+  {
+    title: 'Rosalind Franklin',
+    label: 'Figure invisibilisée',
+    copy: 'Une histoire de science, d’effacement, de sexisme et de mémoire à remettre au centre.',
+    image: '/assets/jenny-delacroix.jpg',
+  },
+]
+
+const bioRoles = [
+  {
+    icon: History,
+    label: 'Historienne',
+    text: 'Master Recherche SHS, mémoire sur les astrologues de cour au XVe siècle.',
+  },
+  {
+    icon: Clapperboard,
+    label: 'Vulgarisatrice',
+    text: 'Créatrice de La Prof, entre Moyen Âge, histoire des femmes et culture visuelle.',
+  },
+  {
+    icon: Feather,
+    label: 'Autrice',
+    text: 'De la vulgarisation au roman historique, avec un goût net pour les voix oubliées.',
+  },
+]
+
+const bioMilestones = [
+  {
+    year: '2015',
+    title: 'La Prof',
+    text: 'Une chaîne YouTube pour raconter l’histoire sans l’assécher.',
+  },
+  {
+    year: '2020',
+    title: 'Nouveau Monde',
+    text: 'Premiers livres de vulgarisation historique en librairie.',
+  },
+  {
+    year: '2026',
+    title: 'Adieu, liberté',
+    text: 'Premier roman, entre Delacroix, Jenny, Charlotte et la fabrique d’un symbole.',
+  },
+]
+
 const socials = [
   { label: 'YouTube', href: 'https://www.youtube.com/laprof', icon: Youtube },
   { label: 'Instagram', href: 'https://www.instagram.com/', icon: Instagram },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/', icon: Linkedin },
+]
+
+const footerColumns = [
+  {
+    title: 'Explorer',
+    links: [
+      { label: 'Bio', href: '#bio' },
+      { label: 'Publications', href: '#publications' },
+      { label: 'Vidéos', href: '#videos' },
+      { label: 'Journal', href: '#journal' },
+    ],
+  },
+  {
+    title: 'Univers',
+    links: [
+      { label: 'Adieu, liberté', href: '#roman' },
+      { label: 'La Prof', href: 'https://www.youtube.com/laprof' },
+      { label: 'Histoire des femmes', href: '#videos' },
+      { label: 'Rencontres', href: '#journal' },
+    ],
+  },
+  {
+    title: 'Contact',
+    links: [
+      { label: 'Écriture', href: 'mailto:justine.defrance@protonmail.com' },
+      { label: 'Vulgarisation', href: 'mailto:chroniques.deprof@gmail.com' },
+      { label: 'Newsletter', href: '#contact' },
+      { label: 'Tous les liens', href: '#contact' },
+    ],
+  },
+]
+
+const footerSocials = [
+  { label: 'YouTube', href: 'https://www.youtube.com/laprof', icon: Youtube },
+  { label: 'Instagram', href: 'https://www.instagram.com/', icon: Instagram },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/', icon: Linkedin },
+  { label: 'Facebook', href: 'https://www.facebook.com/', icon: Facebook },
+  { label: 'Bluesky', href: 'https://bsky.app/', icon: Twitter },
 ]
 
 function App() {
@@ -315,140 +434,420 @@ function App() {
           </div>
         </section>
 
-        <section id="roman" className="section-shell bg-linen text-ink">
-          <div className="mx-auto grid max-w-7xl gap-12 px-5 py-24 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8 lg:py-32">
-            <div className="sticky top-28 self-start">
-              <p className="eyebrow text-rust">Roman phare</p>
-              <h2 className="section-title mt-4">Avant d'être un symbole, la Liberté fut une femme.</h2>
-              <p className="mt-6 text-lg leading-8 text-ink/68">
-                Paris, 1830. Delacroix cherche l'inspiration. Jenny accompagne ses doutes. Charlotte donne chair à une
-                allégorie. Le roman explore ce que signifie incarner, ou trahir, la Liberté.
-              </p>
-              <a
-                href="https://www.placedeslibraires.fr/livre/9782889443154-adieu-liberte-justine-defrance/"
-                target="_blank"
-                rel="noreferrer"
-                className="mt-8 inline-flex items-center gap-3 rounded-full bg-ink px-6 py-4 font-semibold text-linen transition hover:-translate-y-1 hover:bg-rust"
-              >
-                Commander le roman
-                <ArrowRight size={18} />
-              </a>
-            </div>
+        <section id="roman" className="relative overflow-hidden bg-linen text-ink">
+          <div className="absolute inset-0">
+            <img src="/assets/adieu-cover.png" alt="" className="h-full w-full object-cover opacity-12" />
+            <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(245,234,216,0.98)_0%,rgba(245,234,216,0.92)_48%,rgba(245,234,216,0.78)_100%)]" />
+            <div className="paper-grain absolute inset-0 opacity-30 mix-blend-multiply" />
+          </div>
 
-            <div className="grid gap-5">
-              {features.map((feature, index) => {
-                const Icon = feature.icon
-                return (
-                  <article key={feature.title} className="reveal-card group grid gap-5 overflow-hidden rounded-2xl border border-ink/10 bg-white p-4 shadow-xl shadow-ink/5 md:grid-cols-[13rem_1fr]">
-                    <div className="relative min-h-56 overflow-hidden rounded-xl bg-ink">
-                      <img src={feature.image} alt="" className="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
-                      <span className="absolute left-3 top-3 rounded-full bg-linen/90 px-3 py-1 text-xs font-bold text-ink">
-                        0{index + 1}
-                      </span>
+          <div className="relative mx-auto max-w-7xl px-5 py-20 sm:px-6 lg:px-8 lg:py-28">
+            <motion.div
+              initial={{ opacity: 0, y: 34 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.35 }}
+              transition={{ duration: 0.75, ease: 'easeOut' }}
+              className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end"
+            >
+              <div>
+                <p className="eyebrow text-rust">Roman phare</p>
+                <h2 className="mt-4 max-w-4xl font-display text-[clamp(3.2rem,7vw,7.4rem)] font-black leading-[0.88]">
+                  Avant le symbole,
+                  <span className="block text-rust">une femme.</span>
+                </h2>
+              </div>
+              <div className="max-w-2xl border-l border-rust/25 pl-6 text-lg leading-8 text-ink/68">
+                Paris, 1830. Eugène Delacroix cherche l’inspiration pour peindre La Liberté guidant le peuple. À ses
+                côtés, Jenny veille, Charlotte surgit, et la fiction s’empare de ce que l’Histoire ne peut pas prouver.
+              </div>
+            </motion.div>
+
+            <div className="mt-14 grid gap-5 lg:grid-cols-[0.88fr_1.12fr]">
+              <motion.article
+                initial={{ opacity: 0, scale: 0.96 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, amount: 0.25 }}
+                transition={{ duration: 0.8, ease: 'easeOut' }}
+                className="relative overflow-hidden rounded-[1.75rem] bg-ink p-5 text-linen shadow-[0_35px_110px_rgba(23,16,11,0.22)]"
+              >
+                <div className="absolute inset-0">
+                  <img src="/assets/adieu-cover.png" alt="" className="h-full w-full object-cover opacity-20" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/84 to-ink/36" />
+                </div>
+                <div className="relative grid gap-8 md:grid-cols-[14rem_1fr] md:items-center">
+                  <div className="mx-auto w-full max-w-[14rem]">
+                    <img
+                      src="/assets/adieu-liberte.png"
+                      alt="Couverture du roman Adieu, liberté"
+                      className="w-full rotate-[-4deg] rounded-xl border border-white/20 shadow-2xl shadow-black/50"
+                    />
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold uppercase tracking-[0.26em] text-gold">Istya & Cie - 05 février 2026</p>
+                    <h3 className="mt-4 font-display text-5xl font-black leading-none sm:text-6xl">Adieu, liberté</h3>
+                    <p className="mt-6 text-lg leading-8 text-linen/72">
+                      Une histoire de révoltes, d’amour, de jalousie et de quête de liberté autour de la naissance d’un
+                      tableau mythique.
+                    </p>
+                    <div className="mt-7 grid grid-cols-2 gap-3 text-sm sm:grid-cols-4">
+                      {['Paris', '1830', 'Atelier', 'Insurrection'].map((item) => (
+                        <span key={item} className="rounded-full border border-gold/25 bg-gold/10 px-3 py-2 text-center font-semibold text-gold">
+                          {item}
+                        </span>
+                      ))}
                     </div>
-                    <div className="flex flex-col justify-center p-2">
-                      <div className="mb-5 flex size-12 items-center justify-center rounded-full bg-gold/20 text-rust">
-                        <Icon size={22} />
-                      </div>
-                      <p className="text-xs font-bold uppercase tracking-[0.22em] text-rust">{feature.label}</p>
-                      <h3 className="mt-3 font-display text-3xl font-black leading-tight">{feature.title}</h3>
-                      <p className="mt-4 leading-7 text-ink/64">{feature.copy}</p>
-                    </div>
-                  </article>
-                )
-              })}
+                    <a
+                      href="https://www.placedeslibraires.fr/livre/9782889443154-adieu-liberte-justine-defrance/"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="mt-8 inline-flex items-center gap-3 rounded-full bg-gold px-6 py-4 font-semibold text-ink transition hover:-translate-y-1 hover:bg-linen"
+                    >
+                      Commander le roman
+                      <ArrowRight size={18} />
+                    </a>
+                  </div>
+                </div>
+              </motion.article>
+
+              <div className="grid gap-5">
+                <div className="grid gap-3 sm:grid-cols-3">
+                  {novelCharacters.map((character, index) => (
+                    <motion.article
+                      key={character.name}
+                      initial={{ opacity: 0, y: 24 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, amount: 0.25 }}
+                      transition={{ duration: 0.55, delay: index * 0.08, ease: 'easeOut' }}
+                      className="border-l border-rust/30 bg-white/70 p-5 shadow-xl shadow-ink/5 backdrop-blur"
+                    >
+                      <p className="text-xs font-black uppercase tracking-[0.24em] text-rust">{character.role}</p>
+                      <h3 className="mt-3 font-display text-3xl font-black">{character.name}</h3>
+                      <p className="mt-4 text-sm leading-6 text-ink/62">{character.copy}</p>
+                    </motion.article>
+                  ))}
+                </div>
+
+                <div className="grid gap-4 md:grid-cols-3">
+                  {features.map((feature, index) => {
+                    const Icon = feature.icon
+                    return (
+                      <motion.article
+                        key={feature.title}
+                        initial={{ opacity: 0, y: 24 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.25 }}
+                        transition={{ duration: 0.55, delay: index * 0.08, ease: 'easeOut' }}
+                        className="group overflow-hidden rounded-2xl border border-ink/10 bg-white p-4 shadow-xl shadow-ink/5"
+                      >
+                        <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-ink">
+                          <img src={feature.image} alt="" className="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
+                          <div className="absolute inset-0 bg-gradient-to-t from-ink/74 to-transparent" />
+                          <Icon className="absolute bottom-4 left-4 text-gold" size={26} />
+                        </div>
+                        <p className="mt-5 text-xs font-bold uppercase tracking-[0.22em] text-rust">{feature.label}</p>
+                        <h3 className="mt-3 font-display text-2xl font-black leading-tight">{feature.title}</h3>
+                        <p className="mt-4 text-sm leading-6 text-ink/64">{feature.copy}</p>
+                      </motion.article>
+                    )
+                  })}
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
         <section id="bio" className="relative overflow-hidden bg-forest text-linen">
-          <div className="absolute inset-0 opacity-20">
-            <img src="/assets/justine-book.jpg" alt="" className="h-full w-full object-cover" />
-            <div className="absolute inset-0 bg-forest/80" />
+          <div className="absolute inset-0">
+            <img src="/assets/justine-book.jpg" alt="" className="h-full w-full object-cover opacity-16" />
+            <div className="absolute inset-0 bg-[linear-gradient(115deg,rgba(23,53,44,0.98)_0%,rgba(23,53,44,0.9)_48%,rgba(23,53,44,0.72)_100%)]" />
+            <div className="paper-grain absolute inset-0 opacity-20" />
           </div>
-          <div className="relative mx-auto grid max-w-7xl gap-12 px-5 py-24 sm:px-6 lg:grid-cols-[1fr_1fr] lg:px-8 lg:py-32">
-            <div>
+          <div className="relative mx-auto grid max-w-7xl gap-12 px-5 py-20 sm:px-6 lg:grid-cols-[0.88fr_1.12fr] lg:px-8 lg:py-28">
+            <div className="lg:sticky lg:top-28 lg:self-start">
               <p className="eyebrow text-gold">Bio</p>
-              <h2 className="section-title mt-4">Une autrice à plusieurs casquettes, et aucune envie de rentrer dans une seule case.</h2>
+              <h2 className="mt-4 font-display text-[clamp(3rem,6.1vw,6.25rem)] font-black leading-[0.9]">
+                Plusieurs vies d’histoire.
+                <span className="block text-gold">Une même voix.</span>
+              </h2>
+              <p className="mt-7 max-w-xl text-lg leading-8 text-linen/72">
+                Justine avance entre archives, caméra, scène et fiction avec la même obsession : rendre visibles les
+                présences que le récit officiel laisse souvent dans l’ombre.
+              </p>
+              <div className="mt-9 grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
+                {bioRoles.map((role) => {
+                  const Icon = role.icon
+                  return (
+                    <article key={role.label} className="border-l border-gold/40 bg-linen/[0.04] p-4 backdrop-blur-sm">
+                      <div className="flex items-center gap-3 text-gold">
+                        <Icon size={19} />
+                        <h3 className="text-sm font-bold uppercase tracking-[0.22em]">{role.label}</h3>
+                      </div>
+                      <p className="mt-3 text-sm leading-6 text-linen/64">{role.text}</p>
+                    </article>
+                  )
+                })}
+              </div>
             </div>
-            <div className="space-y-6 text-lg leading-9 text-linen/78">
-              <p>
-                Historienne de formation, titulaire d'un Master Recherche SHS consacré aux astrologues de cour au XVe
-                siècle, Justine a enseigné l'histoire-géographie avant de créer en 2015 la chaîne YouTube La Prof.
-              </p>
-              <p>
-                Ses vidéos explorent surtout l'histoire médiévale, l'histoire des femmes, l'histoire culturelle et les
-                sensibilités. Ses premiers livres de vulgarisation sont parus chez Nouveau Monde éditions.
-              </p>
-              <p>
-                Elle se tourne aujourd'hui de plus en plus vers la fiction avec Adieu, liberté, tout en poursuivant ses
-                projets de transmission, de scène, d'écriture et de curiosité joyeusement dispersée.
-              </p>
+
+            <div className="grid gap-5 lg:grid-cols-[0.78fr_1fr]">
+              <figure className="relative min-h-[32rem] overflow-hidden rounded-[1.75rem] border border-white/12 bg-linen/8 p-3 shadow-[0_35px_110px_rgba(0,0,0,0.28)]">
+                <img
+                  src="/assets/justine-portrait.jpg"
+                  alt="Portrait de Justine Defrance"
+                  className="h-full w-full rounded-[1.15rem] object-cover object-[center_35%]"
+                />
+                <div className="absolute inset-x-3 bottom-3 h-1/2 rounded-b-[1.15rem] bg-gradient-to-t from-ink/82 to-transparent" />
+                <figcaption className="absolute bottom-6 left-6 right-6 text-sm leading-6 text-linen/78">
+                  <span className="mb-3 inline-flex rounded-full border border-gold/35 bg-gold/15 px-3 py-1 text-xs font-bold uppercase tracking-[0.18em] text-gold backdrop-blur-xl">
+                    Crédit photo : Marie-Hélène Tercafs
+                  </span>
+                  <span className="block">
+                    Autrice, vulgarisatrice en histoire, comédienne, féministe, nordiste, amatrice de cinéma, de puzzles
+                    et de bons repas.
+                  </span>
+                </figcaption>
+              </figure>
+
+              <div className="flex flex-col justify-center gap-5">
+                <div className="border-y border-white/12 py-7">
+                  <p className="text-sm font-bold uppercase tracking-[0.22em] text-gold">Trajectoire</p>
+                  <p className="mt-4 text-2xl leading-10 text-linen/86">
+                    D’abord historienne de formation, elle a enseigné, vulgarisé, écrit des livres d’histoire, puis
+                    ouvert plus largement la porte de la fiction.
+                  </p>
+                </div>
+
+                <div className="grid gap-3">
+                  {bioMilestones.map((item) => (
+                    <article key={item.year} className="grid grid-cols-[4.5rem_1fr] gap-4 border-b border-white/10 pb-4 last:border-b-0">
+                      <p className="font-display text-3xl font-black text-gold">{item.year}</p>
+                      <div>
+                        <h3 className="font-display text-2xl font-black">{item.title}</h3>
+                        <p className="mt-2 leading-7 text-linen/64">{item.text}</p>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+
+                <div className="bg-gold p-5 text-ink shadow-2xl shadow-black/20">
+                  <p className="font-display text-2xl font-black leading-tight">
+                    “Être dispersée me convient aussi très bien.”
+                  </p>
+                  <p className="mt-3 text-sm font-semibold text-ink/62">
+                    Une bio qui assume la pluralité comme moteur, pas comme détour.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
-        <section id="publications" className="section-shell bg-ink text-linen">
-          <div className="mx-auto max-w-7xl px-5 py-24 sm:px-6 lg:px-8 lg:py-32">
-            <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
+        <section id="publications" className="relative overflow-hidden bg-ink text-linen">
+          <div className="absolute inset-0">
+            <img src="/assets/adieu-cover.png" alt="" className="h-full w-full object-cover opacity-10" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_18%,rgba(228,187,103,0.18),transparent_34%),linear-gradient(180deg,rgba(23,16,11,0.96),rgba(23,16,11,1))]" />
+            <div className="paper-grain absolute inset-0 opacity-18" />
+          </div>
+
+          <div className="relative mx-auto max-w-7xl px-5 py-20 sm:px-6 lg:px-8 lg:py-28">
+            <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
               <div>
                 <p className="eyebrow text-gold">Bibliothèque</p>
-                <h2 className="section-title mt-4 max-w-4xl">Des livres pour ouvrir des mondes, puis y faire entrer des voix.</h2>
+                <h2 className="mt-4 max-w-4xl font-display text-[clamp(3rem,6.3vw,6.6rem)] font-black leading-[0.92]">
+                  Des livres comme
+                  <span className="block text-gold">des portes dérobées.</span>
+                </h2>
               </div>
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-5 text-linen/68 lg:max-w-sm">
-                Nouveau projet de vulgarisation annoncé pour l'automne 2026.
+              <div className="max-w-2xl border-l border-gold/40 pl-6 text-lg leading-8 text-linen/70">
+                De la vulgarisation historique au roman, les publications de Justine font circuler les mêmes obsessions :
+                rendre le passé vivant, déplacer le regard, et laisser entrer celles et ceux qu’on avait oubliés hors
+                champ.
               </div>
             </div>
-            <div className="mt-14 grid gap-4 md:grid-cols-2">
-              {publications.map((publication) => (
-                <article key={publication.title} className="group rounded-2xl border border-white/10 bg-linen/[0.04] p-6 transition hover:-translate-y-1 hover:bg-linen/[0.08]">
-                  <p className="text-xs font-bold uppercase tracking-[0.24em] text-gold">{publication.category}</p>
-                  <h3 className="mt-4 font-display text-3xl font-black">{publication.title}</h3>
-                  <p className="mt-2 text-sm text-linen/50">{publication.meta}</p>
-                  <p className="mt-5 leading-7 text-linen/68">{publication.note}</p>
-                </article>
-              ))}
+
+            <div className="mt-14 grid gap-5 lg:grid-cols-[1.05fr_0.95fr]">
+              <article className="relative overflow-hidden rounded-[1.75rem] border border-white/12 bg-linen/[0.06] p-5 shadow-[0_35px_110px_rgba(0,0,0,0.32)]">
+                <div className="grid gap-8 md:grid-cols-[16rem_1fr] md:items-center">
+                  <div className="relative mx-auto w-full max-w-[15rem]">
+                    <div className="absolute -inset-5 rounded-full bg-gold/18 blur-3xl" />
+                    <img
+                      src="/assets/adieu-liberte.png"
+                      alt="Couverture du roman Adieu, liberté"
+                      className="relative w-full rotate-[-3deg] rounded-xl border border-white/20 shadow-2xl shadow-black/45"
+                    />
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold uppercase tracking-[0.26em] text-gold">Roman historique</p>
+                    <h3 className="mt-4 font-display text-5xl font-black leading-none sm:text-6xl">Adieu, liberté</h3>
+                    <p className="mt-3 text-sm uppercase tracking-[0.2em] text-linen/48">05 février 2026 - Istya & Cie</p>
+                    <p className="mt-6 text-lg leading-8 text-linen/72">
+                      Paris, 1830. Delacroix cherche l’inspiration, Jenny accompagne ses doutes, Charlotte donne chair à
+                      une allégorie. Un premier roman sur la fabrique d’un tableau, d’un mythe et d’une liberté.
+                    </p>
+                    <div className="mt-7 flex flex-wrap gap-3">
+                      {['Delacroix', 'Jenny', 'Charlotte', '1830'].map((tag) => (
+                        <span key={tag} className="rounded-full border border-gold/30 bg-gold/10 px-4 py-2 text-sm font-semibold text-gold">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <a
+                      href="https://www.placedeslibraires.fr/livre/9782889443154-adieu-liberte-justine-defrance/"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="mt-8 inline-flex items-center gap-3 rounded-full bg-gold px-6 py-4 font-semibold text-ink transition hover:-translate-y-1 hover:bg-linen"
+                    >
+                      <BookOpen size={18} />
+                      Trouver le roman
+                    </a>
+                  </div>
+                </div>
+              </article>
+
+              <div className="grid gap-4">
+                <div className="grid gap-4 sm:grid-cols-2">
+                  <div className="bg-gold p-5 text-ink">
+                    <p className="text-xs font-black uppercase tracking-[0.24em] text-ink/55">À venir</p>
+                    <p className="mt-4 font-display text-3xl font-black leading-tight">Vulgarisation historique</p>
+                    <p className="mt-4 leading-7 text-ink/68">Nouveau projet annoncé pour l’automne 2026.</p>
+                  </div>
+                  <div className="border border-white/12 bg-white/[0.04] p-5">
+                    <p className="text-xs font-black uppercase tracking-[0.24em] text-gold">Fil rouge</p>
+                    <p className="mt-4 font-display text-3xl font-black leading-tight">Histoire, femmes, mentalités</p>
+                    <p className="mt-4 leading-7 text-linen/62">Des livres pour relier savoir, récit et incarnation.</p>
+                  </div>
+                </div>
+
+                {publications.slice(1).map((publication) => (
+                  <article
+                    key={publication.title}
+                    className="group grid gap-4 border-b border-white/10 bg-linen/[0.03] p-5 transition hover:bg-linen/[0.07] sm:grid-cols-[8.5rem_1fr]"
+                  >
+                    <div>
+                      <p className="text-xs font-bold uppercase tracking-[0.24em] text-gold">{publication.category}</p>
+                      <p className="mt-3 text-sm text-linen/45">{publication.meta}</p>
+                    </div>
+                    <div>
+                      <h3 className="font-display text-3xl font-black leading-tight">{publication.title}</h3>
+                      <p className="mt-3 leading-7 text-linen/64">{publication.note}</p>
+                    </div>
+                  </article>
+                ))}
+              </div>
             </div>
           </div>
         </section>
 
-        <section id="videos" className="bg-linen text-ink">
-          <div className="mx-auto grid max-w-7xl gap-10 px-5 py-24 sm:px-6 lg:grid-cols-[0.95fr_1.05fr] lg:px-8 lg:py-32">
-            <div>
-              <p className="eyebrow text-rust">Vidéos</p>
-              <h2 className="section-title mt-4">La Prof, l'histoire avec du rythme et du mordant.</h2>
-              <p className="mt-6 text-lg leading-8 text-ink/68">
-                Chroniques de Prof, Gentes Dames Badass, Moyen Âge, peintres, cartes et figures invisibilisées :
-                l'histoire devient un terrain de jeu exigeant.
-              </p>
-              <a
-                href="https://www.youtube.com/laprof"
-                target="_blank"
-                rel="noreferrer"
-                className="mt-8 inline-flex items-center gap-3 rounded-full bg-rust px-6 py-4 font-semibold text-linen transition hover:-translate-y-1 hover:bg-ink"
+        <section id="videos" className="relative overflow-hidden bg-linen text-ink">
+          <div className="absolute inset-0">
+            <img src="/assets/rosa-bonheur.png" alt="" className="h-full w-full object-cover opacity-12" />
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(245,234,216,0.96),rgba(245,234,216,0.9))]" />
+            <div className="paper-grain absolute inset-0 opacity-25 mix-blend-multiply" />
+          </div>
+
+          <div className="relative mx-auto max-w-7xl px-5 py-20 sm:px-6 lg:px-8 lg:py-28">
+            <div className="grid gap-10 lg:grid-cols-[0.86fr_1.14fr] lg:items-end">
+              <motion.div
+                initial={{ opacity: 0, y: 32 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.35 }}
+                transition={{ duration: 0.7, ease: 'easeOut' }}
               >
-                <Youtube size={19} />
-                Ouvrir YouTube
-              </a>
+                <p className="eyebrow text-rust">La Prof</p>
+                <h2 className="mt-4 font-display text-[clamp(3.1rem,6.5vw,7rem)] font-black leading-[0.88]">
+                  Des vidéos qui
+                  <span className="block text-rust">déplacent le regard.</span>
+                </h2>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 32 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.35 }}
+                transition={{ duration: 0.7, delay: 0.1, ease: 'easeOut' }}
+                className="max-w-2xl border-l border-rust/25 pl-6"
+              >
+                <p className="text-lg leading-8 text-ink/68">
+                  Moyen Âge, femmes artistes, sciences oubliées, objets à dater : la vulgarisation devient un format
+                  vivant, précis, accessible, avec le plaisir très net de raconter.
+                </p>
+                <a
+                  href="https://www.youtube.com/laprof"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-7 inline-flex items-center gap-3 rounded-full bg-rust px-6 py-4 font-semibold text-linen transition hover:-translate-y-1 hover:bg-ink"
+                >
+                  <Youtube size={19} />
+                  Ouvrir YouTube
+                </a>
+              </motion.div>
             </div>
-            <div className="grid gap-5">
-              <article className="video-tile min-h-[22rem] overflow-hidden rounded-3xl">
+
+            <div className="mt-14 grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
+              <motion.article
+                initial={{ opacity: 0, scale: 0.96 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, amount: 0.25 }}
+                transition={{ duration: 0.75, ease: 'easeOut' }}
+                className="video-tile min-h-[34rem] overflow-hidden rounded-[1.75rem]"
+              >
                 <img src="/assets/rosa-bonheur.png" alt="Miniature de vidéo sur Rosa Bonheur" className="h-full w-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/18 to-transparent" />
-                <div className="absolute bottom-0 left-0 p-7 text-linen">
-                  <Play className="mb-5 rounded-full bg-gold p-3 text-ink" size={52} />
-                  <p className="text-sm uppercase tracking-[0.24em] text-gold">Nouvelle vidéo</p>
-                  <h3 className="mt-2 font-display text-4xl font-black">Rosa Bonheur</h3>
+                <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/28 to-transparent" />
+                <div className="absolute left-0 right-0 top-0 flex items-center justify-between p-5">
+                  <span className="rounded-full bg-gold px-4 py-2 text-xs font-black uppercase tracking-[0.2em] text-ink">
+                    Épisode phare
+                  </span>
+                  <span className="rounded-full border border-white/20 bg-ink/35 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-linen backdrop-blur-xl">
+                    Gentes Dames Badass
+                  </span>
                 </div>
-              </article>
-              <article className="video-tile min-h-[18rem] overflow-hidden rounded-3xl">
-                <img src="/assets/mappemonde.jpg" alt="Miniature de vidéo sur une mappemonde" className="h-full w-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/12 to-transparent" />
-                <div className="absolute bottom-0 left-0 p-7 text-linen">
-                  <p className="text-sm uppercase tracking-[0.24em] text-gold">Enquête d'objet</p>
-                  <h3 className="mt-2 font-display text-3xl font-black">Quel âge a ma mappemonde ?</h3>
+                <div className="absolute bottom-0 left-0 max-w-2xl p-6 text-linen sm:p-8">
+                  <Play className="mb-6 rounded-full bg-gold p-4 text-ink shadow-2xl shadow-black/25" size={64} />
+                  <h3 className="font-display text-5xl font-black leading-none sm:text-6xl">Rosa Bonheur</h3>
+                  <p className="mt-5 max-w-xl text-lg leading-8 text-linen/70">
+                    Une peintre libre, célèbre, indépendante, et une parfaite passerelle vers les figures féminines du
+                    XIXe siècle.
+                  </p>
                 </div>
-              </article>
+              </motion.article>
+
+              <div className="grid gap-4">
+                {videoSpotlights.map((video, index) => (
+                  <motion.article
+                    key={video.title}
+                    initial={{ opacity: 0, x: 24 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true, amount: 0.25 }}
+                    transition={{ duration: 0.55, delay: index * 0.08, ease: 'easeOut' }}
+                    className="group grid gap-4 overflow-hidden rounded-2xl border border-ink/10 bg-white/76 p-3 shadow-xl shadow-ink/5 backdrop-blur sm:grid-cols-[10rem_1fr]"
+                  >
+                    <div className="relative min-h-40 overflow-hidden rounded-xl bg-ink">
+                      <img src={video.image} alt="" className="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-ink/65 to-transparent" />
+                      <Play className="absolute bottom-3 left-3 rounded-full bg-gold p-2 text-ink" size={38} />
+                    </div>
+                    <div className="flex flex-col justify-center p-2">
+                      <p className="text-xs font-black uppercase tracking-[0.22em] text-rust">{video.label}</p>
+                      <h3 className="mt-3 font-display text-3xl font-black leading-tight">{video.title}</h3>
+                      <p className="mt-3 text-sm leading-6 text-ink/62">{video.copy}</p>
+                    </div>
+                  </motion.article>
+                ))}
+              </div>
+            </div>
+
+            <div className="mt-5 grid gap-4 md:grid-cols-4">
+              {['Moyen Âge', 'Femmes oubliées', 'Objets & cartes', 'Histoire culturelle'].map((theme, index) => (
+                <motion.div
+                  key={theme}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.25 }}
+                  transition={{ duration: 0.5, delay: index * 0.06, ease: 'easeOut' }}
+                  className="border border-ink/10 bg-white/65 p-5 text-center shadow-xl shadow-ink/5"
+                >
+                  <p className="font-display text-2xl font-black">{theme}</p>
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>
@@ -550,15 +949,127 @@ function App() {
         </section>
       </main>
 
-      <footer className="border-t border-white/10 bg-ink px-5 py-10 text-linen/55">
-        <div className="mx-auto flex max-w-7xl flex-col justify-between gap-5 sm:flex-row sm:items-center">
-          <p>Justine Defrance - Autrice, vulgarisatrice en histoire</p>
-          <p className="flex items-center gap-2">
-            <Newspaper size={16} />
-            Site conceptuel React + Vite
-          </p>
+      <div className="relative overflow-hidden bg-ink px-5 py-16 text-linen sm:px-6 lg:px-8 lg:py-20">
+        <div className="absolute inset-0">
+          <img src="/assets/jenny-delacroix.jpg" alt="" className="h-full w-full object-cover opacity-10" />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(23,16,11,0.98),rgba(23,16,11,0.9)_42%,rgba(23,16,11,1))]" />
+          <div className="paper-grain absolute inset-0 opacity-16" />
         </div>
-      </footer>
+
+        <motion.footer
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.4, ease: 'easeOut' }}
+          className="liquid-glass relative mx-auto mt-0 w-full max-w-7xl rounded-3xl p-6 text-linen/70 md:p-10"
+        >
+          <div className="grid grid-cols-1 gap-10 md:mb-10 md:grid-cols-12 md:gap-12">
+            <div className="md:col-span-5">
+              <a href="#accueil" className="group inline-flex items-center gap-4 text-linen" aria-label="Retour à l'accueil">
+                <span className="grid size-12 place-items-center rounded-2xl bg-gold text-ink shadow-lg shadow-gold/15 transition group-hover:-translate-y-1">
+                  <Feather size={22} />
+                </span>
+                <span>
+                  <span className="block font-display text-2xl font-black leading-none">Justine Defrance</span>
+                  <span className="mt-2 block text-xs font-bold uppercase tracking-[0.28em] text-gold">
+                    Autrice - Histoire - Fiction
+                  </span>
+                </span>
+              </a>
+
+              <p className="mt-7 max-w-sm text-sm leading-7 text-linen/62">
+                Romans historiques, vulgarisation, vidéos et carnets d’atelier : un lieu pour suivre les livres, les
+                archives et les voix que Justine remet en lumière.
+              </p>
+
+              <div className="mt-8 grid gap-3 sm:grid-cols-3 md:max-w-md">
+                <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-4">
+                  <BookMarked className="text-gold" size={20} />
+                  <p className="mt-3 text-xs uppercase tracking-[0.2em] text-linen/45">Roman</p>
+                  <p className="mt-1 font-display text-xl font-black text-linen">Adieu, liberté</p>
+                </div>
+                <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-4">
+                  <ScrollText className="text-gold" size={20} />
+                  <p className="mt-3 text-xs uppercase tracking-[0.2em] text-linen/45">Projet</p>
+                  <p className="mt-1 font-display text-xl font-black text-linen">Automne 2026</p>
+                </div>
+                <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-4">
+                  <Music2 className="text-gold" size={20} />
+                  <p className="mt-3 text-xs uppercase tracking-[0.2em] text-linen/45">Chaîne</p>
+                  <p className="mt-1 font-display text-xl font-black text-linen">La Prof</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="md:col-span-7">
+              <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
+                {footerColumns.map((column) => (
+                  <div key={column.title}>
+                    <h3 className="text-sm font-bold uppercase tracking-[0.24em] text-linen">{column.title}</h3>
+                    <ul className="mt-5 space-y-3">
+                      {column.links.map((link) => (
+                        <li key={link.label}>
+                          <a href={link.href} className="text-sm text-linen/55 transition hover:text-gold">
+                            {link.label}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-10 rounded-3xl border border-white/10 bg-ink/42 p-5 backdrop-blur-xl">
+                <div className="grid gap-5 lg:grid-cols-[1fr_auto] lg:items-center">
+                  <div>
+                    <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.24em] text-gold">
+                      <AtSign size={16} />
+                      Rester dans la boucle
+                    </p>
+                    <p className="mt-3 max-w-xl text-sm leading-7 text-linen/60">
+                      Pour une invitation, une dédicace, une question d’écriture ou une collaboration autour de
+                      l’histoire.
+                    </p>
+                  </div>
+                  <a
+                    href="mailto:justine.defrance@protonmail.com"
+                    className="inline-flex items-center justify-center gap-3 rounded-full bg-gold px-6 py-4 font-semibold text-ink transition hover:-translate-y-1 hover:bg-linen"
+                  >
+                    Écrire
+                    <ArrowRight size={18} />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-10 flex flex-col gap-6 border-t border-white/10 pt-6 md:flex-row md:items-center md:justify-between md:gap-4">
+            <p className="text-[10px] uppercase tracking-[0.28em] text-linen/42">
+              © 2026 Justine Defrance - Crédit photo : Marie-Hélène Tercafs
+            </p>
+
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+              <span className="text-[10px] uppercase tracking-[0.28em] text-linen/42">Suivre le fil :</span>
+              <div className="flex flex-wrap gap-2">
+                {footerSocials.map((social) => {
+                  const Icon = social.icon
+                  return (
+                    <a
+                      key={social.label}
+                      href={social.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={social.label}
+                      className="grid size-10 place-items-center rounded-full border border-white/10 bg-white/[0.04] text-linen/62 transition hover:-translate-y-1 hover:border-gold/40 hover:text-gold"
+                    >
+                      <Icon size={17} />
+                    </a>
+                  )
+                })}
+              </div>
+            </div>
+          </div>
+        </motion.footer>
+      </div>
     </div>
   )
 }
