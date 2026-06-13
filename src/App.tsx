@@ -262,6 +262,21 @@ const footerSocials = [
   { label: 'Bluesky', href: 'https://bsky.app/', icon: Twitter },
 ]
 
+function BrandMark({ className = '' }: { className?: string }) {
+  return (
+    <span className={`brand-mark-shell ${className}`} aria-hidden="true">
+      <svg viewBox="0 0 64 64" className="brand-mark" focusable="false">
+        <path className="brand-mark-book" d="M15 45c7-5.2 14-5.1 17 .4 3-5.5 10-5.6 17-.4V20c-6.8-2.8-13-2-17 3.1C28 18 21.8 17.2 15 20v25Z" />
+        <path className="brand-mark-page" d="M32 23v22" />
+        <path className="brand-mark-j" d="M40.5 15.5v23.8c0 6.7-4.2 10.4-10.4 10.4-4.7 0-8.2-2.1-10.1-5.4" />
+        <path className="brand-mark-d" d="M25 18.6h8.2c8 0 13.4 5 13.4 13.2S41.2 45 33.2 45H25V18.6Z" />
+        <path className="brand-mark-feather" d="M20.3 43.6 44.7 19.2c3.2 4.8 2.7 10.7-1.4 14.8-3.8 3.8-9.4 4.5-14.5 1.8" />
+        <path className="brand-mark-quill" d="M20.3 43.6 31.6 35" />
+      </svg>
+    </span>
+  )
+}
+
 function App() {
   const [activeSection, setActiveSection] = useState('accueil')
   const [menuOpen, setMenuOpen] = useState(false)
@@ -318,9 +333,7 @@ function App() {
       <header className="fixed left-0 right-0 top-0 z-40 px-4 py-4 sm:px-6 lg:px-8">
         <nav className="mx-auto flex max-w-7xl items-center justify-between rounded-full border border-white/10 bg-ink/70 px-4 py-3 shadow-2xl shadow-black/20 backdrop-blur-2xl">
           <a href="#accueil" className="group flex items-center gap-3" aria-label="Accueil Justine Defrance">
-            <span className="grid size-10 place-items-center rounded-full bg-gold text-ink shadow-lg shadow-gold/20">
-              <Feather size={19} />
-            </span>
+            <BrandMark className="size-11 shrink-0" />
             <span className="leading-tight">
               <span className="block font-display text-base font-semibold tracking-wide">Justine Defrance</span>
               <span className="hidden text-xs uppercase tracking-[0.28em] text-linen/55 sm:block">Autrice histoire</span>
@@ -953,9 +966,7 @@ function App() {
           <div className="grid grid-cols-1 gap-10 md:mb-10 md:grid-cols-12 md:gap-12">
             <div className="md:col-span-5">
               <a href="#accueil" className="group inline-flex max-w-full items-center gap-4 text-linen" aria-label="Retour à l'accueil">
-                <span className="grid size-12 place-items-center rounded-2xl bg-gold text-ink shadow-lg shadow-gold/15 transition group-hover:-translate-y-1">
-                  <Feather size={22} />
-                </span>
+                <BrandMark className="size-14 shrink-0 transition group-hover:-translate-y-1" />
                 <span className="min-w-0">
                   <span className="block font-display text-[clamp(1.45rem,6vw,1.5rem)] font-black leading-none">Justine Defrance</span>
                   <span className="mt-2 block text-[0.68rem] font-bold uppercase tracking-[0.2em] text-gold sm:text-xs sm:tracking-[0.28em]">
