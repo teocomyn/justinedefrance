@@ -566,10 +566,10 @@ function App() {
           </div>
         </section>
 
-        <section id="bio" className="relative overflow-hidden bg-forest text-linen">
+        <section id="bio" className="relative overflow-hidden bg-ink text-linen">
           <div className="absolute inset-0">
             <img src="/assets/justine-book.jpg" alt="" className="h-full w-full object-cover opacity-16" />
-            <div className="absolute inset-0 bg-[linear-gradient(115deg,rgba(23,53,44,0.98)_0%,rgba(23,53,44,0.9)_48%,rgba(23,53,44,0.72)_100%)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_82%_18%,rgba(228,187,103,0.16),transparent_32%),radial-gradient(circle_at_18%_78%,rgba(157,67,43,0.24),transparent_30%),linear-gradient(115deg,rgba(23,16,11,0.98)_0%,rgba(35,22,15,0.94)_52%,rgba(90,41,29,0.82)_100%)]" />
             <div className="paper-grain absolute inset-0 opacity-20" />
           </div>
           <div className="relative mx-auto grid max-w-7xl gap-10 px-5 py-20 sm:px-6 lg:grid-cols-[0.82fr_1.18fr] lg:px-8 lg:py-28">
